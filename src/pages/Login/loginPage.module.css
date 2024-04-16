@@ -1,0 +1,140 @@
+.container{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-image: url('./bg.jpg');
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: auto;
+    position:relative;
+}
+
+.logo{
+    position: absolute;
+    display:flex;
+    width: 100px;
+    height: 100px;
+    margin-left: 22%;
+    margin-top: 42vh;
+    color:rgba(255, 255, 255, 0.934);
+}
+
+.logo_name{
+    position: absolute;
+    top: 32.5px;
+    left: 67%;
+    font-size: 38px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    
+}
+
+.logo_description{
+    position: absolute;
+    top: 91px;
+    left: 5%;
+    font-size: 16px;
+    white-space: nowrap;
+    font-family: "Open Sans", sans-serif ;
+}
+
+
+.login_container, .register_container{
+    position: absolute;
+    width: 510px; 
+    height: 650px;
+    margin-left: 50%;
+    margin-top: 20vh;
+    display: flex;
+    padding-top: 0px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: opacity 0.3s ease;
+    opacity:0;
+}
+
+.login_container.active, .register_container.active{
+    opacity:1;
+    z-index: 20;
+    animation: mymove 0.5s ease;
+}
+
+.register_container.hide{
+    opacity: 0;
+    z-index: 10;
+}
+
+.login_container.hide{
+    opacity: 0;
+}
+
+@keyframes mymove{
+    10% { margin-left: 52%}
+    100% { margin-left: 50%}
+}
+
+.text_container{
+    padding-top: 20%;
+    padding-left: 0%;
+    font-family: "Open Sans", sans-serif;
+}
+
+.button{
+    margin-left: 70%;
+    margin-top: 10%;
+
+}
+
+.heading{
+    margin-top: 3rem;
+    margin-left: 4rem;
+    margin-bottom: 1.5rem;
+    padding:0;
+    
+    
+}
+
+.description_login{
+    margin-left: 4rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    font-weight: 650;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.description_register2{
+    margin-left: 4rem;
+    margin-top: -0.6rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    
+}
+
+.description_register1{
+    margin-left: 4rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+    padding:0;
+}
+
+.input{
+    margin-left: 4rem;
+}
+a, a:visited{
+    text-decoration: none;
+    color: rgb(0, 132, 255); 
+    font-weight: bold;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;    
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);    
+    transition-duration: 150ms;
+}
+
+a:hover{
+    text-decoration: none;
+    color: rgb(0, 101, 196); 
+
+}

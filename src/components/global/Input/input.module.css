@@ -1,0 +1,30 @@
+.container{
+    padding-left: 0;
+
+}
+
+.label{
+    font-family: "Open Sans", sans-serif;
+    font-size:11px;
+    margin-bottom: 0.5rem;
+}
+
+.input{
+  width: 350px;
+  height: 25px;
+  padding: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  border: none; 
+  border-bottom: 2px solid #ccc; 
+  border-radius: 0; 
+  background-color: transparent; 
+  outline: none;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s; 
+}
+
+.input:focus {
+  border-bottom-color: rgb(14, 131, 239); 
+}
