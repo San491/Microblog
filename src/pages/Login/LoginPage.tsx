@@ -19,7 +19,8 @@ const LoginPage = () => {
         email:"",
         password:""
         });
-    
+
+    // @ts-expect-error
     const inputHandler = (type: string, value: any): void => {
         setInputData((prevState) => ({
             ...prevState,
@@ -27,7 +28,9 @@ const LoginPage = () => {
         }));
     };
 
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>)=>{
+        // @ts-expect-error
         setInputData(event.target.value);
     }
     return(

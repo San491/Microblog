@@ -12,14 +12,14 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({onChange, value, type, placeholder, label}) => {
 
-    const valid = ():boolean => {
-        if(type ==='email') {   
-            const emailRegex:RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            return emailRegex.test(value);
-        }
-        return true;
+    // const valid = ():boolean => {
+    //     if(type ==='email') {   
+    //         const emailRegex:RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    //         return emailRegex.test(value);
+    //     }
+    //     return true;
 
-    }
+    // }
 
     
     return (
@@ -30,7 +30,6 @@ const Input: React.FC<InputProps> = ({onChange, value, type, placeholder, label}
             value={value}
             placeholder={placeholder}
             onChange={onChange}
-            
         />        
         </div>
     )
