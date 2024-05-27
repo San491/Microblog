@@ -2,15 +2,16 @@ import React from "react";
 import styles from './input.module.css';
 
 
-interface InputProps {
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    value: string;
-    type: string;
-    placeholder?: string;
+interface InputProps extends React.HTMLProps<HTMLInputElement>{
+    // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    // name?: string;
+    // value: string;
+    // type: string;
+    // placeholder?: string;
     label?: string; 
 }
 
-const Input: React.FC<InputProps> = ({onChange, value, type, placeholder, label}) => {
+const Input: React.FC<InputProps> = ({onChange, name, value, type, placeholder, label}) => {
 
     // const valid = ():boolean => {
     //     if(type ==='email') {   
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({onChange, value, type, placeholder, label}
         <div className={styles.container}>
         <p className={styles.label}>{label}</p>
         <input className={styles.input}
+            name={name}
             type={type}
             value={value}
             placeholder={placeholder}

@@ -80,7 +80,13 @@
 }
 
 .text_container{
-    padding-top: 20%;
+    padding-top: 23%;
+    padding-left: 0%;
+    font-family: "Open Sans", sans-serif;
+}
+
+.text_container_register{
+    padding-top: 13%;
     padding-left: 0%;
     font-family: "Open Sans", sans-serif;
 }

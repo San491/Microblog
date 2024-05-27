@@ -5,7 +5,7 @@ import styles from './button.module.css';
 interface ButtonProps {
     children?: ReactNode;
     className?: string;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLInputElement>) =>void;
 }
 
 const Button: React.FC<ButtonProps> = ({children, className, onClick}) => {

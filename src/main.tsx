@@ -6,11 +6,14 @@ import {
 } from "react-router-dom";
 import { routes } from './utils/routes.tsx'
 import './index.css'
+import { AuthContextProvider } from './context/authContext.tsx';
 
 const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
   </React.StrictMode>,
 )
