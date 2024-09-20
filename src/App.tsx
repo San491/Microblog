@@ -1,12 +1,10 @@
-import React, { Profiler } from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react'
 import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
   Navigate
 } from "react-router-dom";
-// import { routes } from './utils/routes.tsx'
 import './index.css'
 import { AuthContext } from './context/authContext.tsx';
 import { useContext } from 'react';
@@ -78,17 +76,6 @@ function App() {
 
     ]
   )
-
-
-
-
-  // ReactDOM.createRoot(document.getElementById('root')!).render(
-  //   <React.StrictMode>
-  //     <AuthContextProvider>
-  //       <RouterProvider router={router} />
-  //     </AuthContextProvider>
-  //   </React.StrictMode>,
-  // )
 
   return (
     <div>

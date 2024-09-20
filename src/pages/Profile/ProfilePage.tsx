@@ -28,7 +28,7 @@ const ProfilePage = () => {
   const user_id = useLocation().pathname.split("/")[2];
 
   // GET USER ID QUERY
-  const { isPending, error, data } = useQuery({
+  const { isPending, data } = useQuery({
     queryKey: ['user'],
     queryFn: () => makeRequest.get("/user/find/" + [user_id]).then((res) => {
       return res.data;
@@ -36,7 +36,7 @@ const ProfilePage = () => {
   });
 
   // GET RELATIONSHIP DATA QUERY
-  const { isPending:relIsLoading, data: relationshipData } = useQuery({
+  const { isPending: relIsLoading, data: relationshipData } = useQuery({
     queryKey: ['relationships'],
     queryFn: () => makeRequest.get("/relationships?followed_userid=" + [user_id]).then((res) => {
       return res.data;
@@ -47,24 +47,24 @@ const ProfilePage = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-      mutationFn:
-          (isFollowing: boolean) => {
-              if (isFollowing) {
-                  return makeRequest.delete("/relationships?profile_userId=" + user_id);
-              }
-              return makeRequest.post("/relationships", { profile_userId: user_id });
-          },
-
-      onSuccess: () => {
-          // Invalidate and refetch
-          queryClient.invalidateQueries({ queryKey: ['relationships'] })
+    mutationFn:
+      (isFollowing: boolean) => {
+        if (isFollowing) {
+          return makeRequest.delete("/relationships?profile_userId=" + user_id);
+        }
+        return makeRequest.post("/relationships", { profile_userId: user_id });
       },
+
+    onSuccess: () => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries({ queryKey: ['relationships'] })
+    },
   });
 
 
   const handleFollow = async (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      mutation.mutate(relationshipData?.includes(currentUser.user_id));
+    e.preventDefault();
+    mutation.mutate(relationshipData?.includes(currentUser.user_id));
   }
 
 
@@ -76,12 +76,12 @@ const ProfilePage = () => {
           <div className={style.images}>
             <img
               className={style.coverPic}
-              src={"/upload/"+data?.cover_picture}
+              src={"/upload/" + data?.cover_picture}
             />
             <div className={style.profilePicContainer}>
-            <img
-              className={style.profilePic}
-              src={"/upload/"+data?.profile_picture}
+              <img
+                className={style.profilePic}
+                src={"/upload/" + data?.profile_picture}
               />
             </div>
           </div>
@@ -117,14 +117,14 @@ const ProfilePage = () => {
                   </div>
                 </div>
                 <div className={style.buttons}>
-                  {relIsLoading? "Loading..." 
-                  : (data?.user_id === currentUser.user_id
-                    ? (<button className={style.followBtn}
-                      onClick={() => setOpenUpdate(true)}>Update</button>) 
-                    : <button className={style.followBtn} 
-                      onClick={handleFollow}>
-                      {relationshipData.includes(currentUser.user_id)?"Following":"Follow"}
-                    </button>)}
+                  {relIsLoading ? "Loading..."
+                    : (data?.user_id === currentUser.user_id
+                      ? (<button className={style.followBtn}
+                        onClick={() => setOpenUpdate(true)}>Update</button>)
+                      : <button className={style.followBtn}
+                        onClick={handleFollow}>
+                        {relationshipData.includes(currentUser.user_id) ? "Following" : "Follow"}
+                      </button>)}
                 </div>
               </div>
               <div className={style.right}>
@@ -132,11 +132,11 @@ const ProfilePage = () => {
                 <MoreVertIcon />
               </div>
             </div>
-            <Posts user_id={user_id}/>
+            <Posts user_id={user_id} />
           </div>
         </>
       }
-      {openUpdate && <UpdateModal setOpenUpdate={setOpenUpdate} user={data}/>}
+      {openUpdate && <UpdateModal setOpenUpdate={setOpenUpdate} user={data} />}
     </div>
   );
 };

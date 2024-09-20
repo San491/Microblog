@@ -13,7 +13,7 @@ const Comments = ({ post_id_comment }: any) => {
     }
     const { currentUser } = authContext;
 
-    const { isPending, error, data } = useQuery({
+    const { isPending, data } = useQuery({
         queryKey: ['comments', post_id_comment],
         queryFn: () => makeRequest.get("/comments?post_id_comment=" + [post_id_comment]).then((res) => {
             return res.data;

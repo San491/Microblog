@@ -9,7 +9,7 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import { AuthContext } from '../../context/authContext.tsx';
 import { useContext } from 'react';
 
-import { Link, redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 

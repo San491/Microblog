@@ -14,7 +14,7 @@ import { AuthContext } from '../../context/authContext';
 
 const Post = (props: any) => {
 
-    const { isPending, error, data } = useQuery({
+    const { data } = useQuery({
         queryKey: ['likes', props.post.post_id],
         queryFn: () => makeRequest.get("/likes?post_id_like=" + [props.post.post_id]).then((res) => {
             return res.data;
