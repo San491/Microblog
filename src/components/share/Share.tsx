@@ -1,4 +1,4 @@
-import { ReactElement, ReactEventHandler, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/authContext';
 import style from './share.module.css';
 import Image from '../../assets/img.png';
@@ -52,7 +52,7 @@ const Share = () => {
         e.preventDefault();
         let imgUrl = "";
         if (file) imgUrl = await upload();
-        if(file!= null || caption!="") mutation.mutate({ caption, image: imgUrl })
+        if (file != null || caption != "") mutation.mutate({ caption, image: imgUrl })
         setCaption("");
         setFile(null);
     }
@@ -64,12 +64,12 @@ const Share = () => {
                     <div className={style.leftTop}>
 
                         <div className={style.user}>
-                            <img className={style.profileImg} src={"/upload/"+currentUser.profile_picture} />
+                            <img className={style.profileImg} src={"/upload/" + currentUser.profile_picture} />
                         </div>
-                        <input type='textarea' className={style.input} 
-                        placeholder={`What's on your mind ${currentUser.name}?`} 
-                        onChange={(e) => { setCaption(e.target.value) }}
-                        value={caption} />
+                        <input type='textarea' className={style.input}
+                            placeholder={`What's on your mind ${currentUser.name}?`}
+                            onChange={(e) => { setCaption(e.target.value) }}
+                            value={caption} />
                     </div>
                     <div className={style.rightTop}>
                         {file && <img className={style.shareImage} src={URL.createObjectURL(file)} />}
