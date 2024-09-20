@@ -1,0 +1,99 @@
+.post{
+
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.28);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.28);
+     box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.28);
+     
+     background-color: white;
+     border-radius: 20px;
+     
+    
+}
+
+.container{
+    padding: 20px;
+    max-width: 100%;
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    position: relative
+}
+
+.postMenu{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: fit-content;
+    height: auto;
+    padding: 0px;
+    border-radius: 3px;
+    
+}
+
+.deleteBtn{
+    border: none;
+    background-color: rgb(255, 67, 67);
+    color: white;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 4px;
+    padding: 5px;
+}
+
+.userInfo{
+    display: flex;
+    gap: 20px;
+}
+
+.profileImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+}
+
+.name{
+    font-weight: 500;
+}
+
+.timestamp{
+    font-size: 12px;
+}
+
+.content{
+    margin: 20px 0px;
+}
+
+.postDesc{
+    margin-top: -5px;
+}
+
+.postImg{
+    width: 100%;
+    max-height: 500px;
+    object-fit:cover;
+}
+
+.info{
+    display:flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.item{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}

@@ -133,7 +133,7 @@
 .input{
     margin-left: 4rem;
 }
-a, a:visited{
+.linkToggle, .linkToggle:visited{
     text-decoration: none;
     color: rgb(0, 132, 255); 
     font-weight: bold;
@@ -142,7 +142,7 @@ a, a:visited{
     transition-duration: 150ms;
 }
 
-a:hover{
+.linkToggle:hover{
     text-decoration: none;
     color: rgb(0, 101, 196); 
 

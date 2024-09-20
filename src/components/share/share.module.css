@@ -1,0 +1,114 @@
+.share{
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.28);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.28);
+     box-shadow: 0px 0px 25px -10px rgba(0,0,0,0.28);
+     
+     background-color: white;
+     border-radius: 20px;    
+}
+
+.container{
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.topHalf{
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftTop{
+    display: flex;
+    gap: 10px;
+    align-self: center;
+    flex: 3;
+}
+
+.input, .input:focus{
+    min-width: 90%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    /* border-bottom: 1px solid; */
+    border-bottom: none;
+    border-color: rgba(128, 128, 128, 0.424);
+}
+
+.item {
+    display: flex;
+    padding: 10px;
+    padding-bottom: 10px;
+    border-radius: 0.5rem;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;    
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);    
+    transition-duration: 150ms;
+}
+.item:hover{
+    background-color: rgb(242, 242, 242);
+    /* background-color: rgba(243, 243, 243, 0.579); */
+}
+.item:active{
+    background-color: rgba(216, 216, 216, 0.579);
+}
+
+.image {
+    width: 2em;
+    height: auto;
+}
+
+.leftBottom{
+    display: flex;
+    gap: 10px;
+    align-self: center;
+}
+
+.shareImage{
+    width: 100px;
+    height: auto;
+    max-height: 150px;
+    max-width: 150px;
+    object-fit: cover;
+}
+
+.bottomHalf{
+    display: flex;
+    justify-content: space-between;
+}
+
+.shareBtn{
+    display: flex;
+    margin-top: 5px;
+    align-self: center;
+    color: white;
+    background-color:rgba(21, 112, 224, 0.874);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;    
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);    
+    transition-duration: 300ms;
+}
+
+.shareBtn:hover{
+    background-color: rgba(46, 131, 235, 0.900);
+}
+
+.shareBtn:active{
+    transition-duration: 80ms;
+    background-color: rgba(93, 156, 233, 0.717);
+}
+
+.profileImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
