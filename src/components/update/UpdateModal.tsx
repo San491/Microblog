@@ -59,27 +59,36 @@ export const UpdateModal = ({ setOpenUpdate }: any, user: any) => {
 
     return (
         <div className={style.UpdateModal}>
-            Update
-            <form>
-                <input type='file'
-                    onChange={(e) => {
-                        const oneFile = e.target.files?.[0]         // making sure e.target.files is not empty before picking 0th element 
-                        if (oneFile)                                 // making sure the file is not undefined before setFile        (ts)
-                            setCoverPic(oneFile)
-                    }} />
-                <input type='file'
-                    onChange={(e) => {
-                        const oneFile = e.target.files?.[0]         // making sure e.target.files is not empty before picking 0th element 
-                        if (oneFile)                                 // making sure the file is not undefined before setFile        (ts)
-                            setProfilePic(oneFile)
-                    }} />
-                <input type='text' name='name' onChange={handleChange} />
-                <input type='text' name='location' onChange={handleChange} />
-                <input type='text' name='website' onChange={handleChange} />
-                <button onClick={handleSubmit}>Update</button>
-                {updated && <p style={{ color: "green", fontWeight: "bold" }}>Updated.</p>}
-            </form>
-            <button onClick={() => { setOpenUpdate(false); updated = false }}>X</button>
+            <div className={style.wrapper}>
+                <h3>Update Profile Details</h3>
+                <form className={style.form}>
+                    <div className={style.fileUpload}>
+
+                        <p>Upload a profile picture</p>
+                        <input type='file'
+                            onChange={(e) => {
+                                const oneFile = e.target.files?.[0]         // making sure e.target.files is not empty before picking 0th element 
+                                if (oneFile)                                 // making sure the file is not undefined before setFile        (ts)
+                                    setCoverPic(oneFile)
+                            }} />
+
+                        <p>Upload a cover picture</p>
+                        <input type='file'
+                            onChange={(e) => {
+                                const oneFile = e.target.files?.[0]         // making sure e.target.files is not empty before picking 0th element 
+                                if (oneFile)                                 // making sure the file is not undefined before setFile        (ts)
+                                    setProfilePic(oneFile)
+                            }} />
+
+                    </div>
+                    <input placeholder='Name' type='text' name='name' onChange={handleChange} />
+                    <input placeholder='Location' type='text' name='location' onChange={handleChange} />
+                    <input placeholder='Website' type='text' name='website' onChange={handleChange} />
+                    <button className={style.closeBtn} onClick={handleSubmit}>Update</button>
+                    {updated && <p style={{ color: "green", fontWeight: "bold" }}>Updated.</p>}
+                </form>
+                <button className={style.closeBtn} onClick={() => { setOpenUpdate(false); updated = false }}>X</button>
+            </div>
         </div>
     )
 
