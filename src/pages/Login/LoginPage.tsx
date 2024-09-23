@@ -41,12 +41,21 @@ const LoginPage = () => {
     const handleReg = async (event: React.MouseEvent<HTMLInputElement>) => {
         event.preventDefault();
         try {
-            await axios.post("http://localhost:8800/api/auth/register", inputData)
+            await axios.post("http://https://microblog-api-l3mq.onrender.com/api/auth/register", inputData)
         } catch (err) {
             if (err instanceof AxiosError)
                 setError(err?.response?.data);
         }
     }
+    // const handleReg = async (event: React.MouseEvent<HTMLInputElement>) => {
+    //     event.preventDefault();
+    //     try {
+    //         await axios.post("http://localhost:8800/api/auth/register", inputData)
+    //     } catch (err) {
+    //         if (err instanceof AxiosError)
+    //             setError(err?.response?.data);
+    //     }
+    // }
 
     // SERVER SIDE CONNECTION login FUNC
     const authContext = useContext(AuthContext);
