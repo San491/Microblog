@@ -22,15 +22,32 @@
     position: relative
 }
 
+.menuIcon{
+    border-radius: 50%;
+    padding: 2px;
+    
+}
+.menuIcon:hover{
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;    
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);    
+    transition-duration: 150ms;
+    background-color: rgba(0, 0, 0, 0.035);
+}
+.menuIcon:active{
+    background-color: rgb(255, 255, 255);
+}
+
+
 .postMenu{
     position: absolute;
     top: 30px;
     right: 0;
     width: fit-content;
     height: auto;
-    padding: 0px;
-    border-radius: 3px;
-    
+    padding: 14px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.168);
 }
 
 .deleteBtn{
@@ -41,7 +58,7 @@
     border-radius: 3px;
     cursor: pointer;
     align-self: center;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
     padding: 5px;
 }
 

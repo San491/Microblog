@@ -100,11 +100,11 @@ const Post = (props: any) => {
                             <span className={style.timestamp}>{moment(props.post.createdAt).fromNow()}</span>
                         </div>
                     </div>
-                    <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
+                    <MoreHorizIcon className={style.menuIcon} onClick={() => setMenuOpen(!menuOpen)} />
+                    {menuOpen && props.post.user_id_post == currentUser.user_id &&
                     <div className={style.postMenu}>
-                        {menuOpen && props.post.user_id_post == currentUser.user_id
-                         && <button className={style.deleteBtn} onClick={handleDelete}>Delete</button>}
-                    </div>
+                        <button className={style.deleteBtn} onClick={handleDelete}>Delete</button>
+                    </div>}
                 </div>
                 <div className={style.content}>
                     <p className={style.postDesc}>{props.post.caption}</p>

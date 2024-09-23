@@ -20,7 +20,7 @@ export const AuthContext = createContext<contextInfo | null>(null);
 
 export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
   const [currentUser, setCurrentUser] = useState<loginInfo>(
-    JSON.parse(localStorage.getItem("user")!) || null
+    JSON.parse(sessionStorage.getItem("user")!) || null
   );
 
   // SERVER AXIOS CONNECTION
@@ -32,17 +32,8 @@ export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
     setCurrentUser(res.data);
   };
 
-  // const login = () => {
-  //   // temp login function 
-  //   setCurrentUser({
-  //     id: 1,
-  //     name: "Jo Doe",
-  //     profile_picture: "https://t4.ftcdn.net/jpg/03/64/21/11/240_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
-  //   });
-  // }
-
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(currentUser));
+    sessionStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);
 
   return (
