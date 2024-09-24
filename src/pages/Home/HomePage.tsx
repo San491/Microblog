@@ -6,9 +6,9 @@ import Share from './../../components/share/Share';
 const HomePage = () => {
     return (
         <div className={style.home}>
-            <Stories />
-            <Share />
-            <Posts />
+            <Stories/>
+            <Share/>
+            <Posts/>
         </div>
 
     );
