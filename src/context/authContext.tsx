@@ -21,14 +21,14 @@ export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
   );
 
   // SERVER AXIOS CONNECTION
-  // const login = async (inputs: loginInfo) => {
-  //   const res = await axios.post("https://microblog-api-l3mq.onrender.com/api/auth/login", inputs, {
-  //     withCredentials: true,
-  //   });
   const login = async (inputs: loginInfo) => {
-    const res = await axios.post("http://localhost:8800/api/auth/login", inputs, {
+    const res = await axios.post("https://microblog-api-l3mq.onrender.com/api/auth/login", inputs, {
       withCredentials: true,
     });
+  // const login = async (inputs: loginInfo) => {
+  //   const res = await axios.post("http://localhost:8800/api/auth/login", inputs, {
+  //     withCredentials: true,
+  //   });
 
     setCurrentUser(res.data);
   };
