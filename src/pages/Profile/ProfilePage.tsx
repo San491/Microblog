@@ -81,7 +81,7 @@ const ProfilePage = () => {
             <div className={style.profilePicContainer}>
               <img
                 className={style.profilePic}
-                src={"/upload/" + data?.profile_picture}
+                src={data?.profile_picture}
               />
             </div>
           </div>
