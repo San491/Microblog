@@ -47,7 +47,7 @@ const Comments = ({ post_id_comment }: any) => {
     return (
         <div className={style.comments_section}>
             <div className={style.write_comment}>
-                <img className={style.profilePic} src={"/upload/"+currentUser.profile_picture} />
+                <img className={style.profilePic} src={currentUser.profile_picture} />
                 <input className={style.commentInput}
                     type='text' placeholder='Write a comment'
                     onChange={e => setText(e.target.value)}
@@ -60,7 +60,7 @@ const Comments = ({ post_id_comment }: any) => {
             {isPending ? "Loading..." 
                : data?.map((comment: any) => (
                     <div className={style.comment}>
-                        <img className={style.profilePic} src={"/upload/"+ comment.profile_picture} alt='' />
+                        <img className={style.profilePic} src={comment.profile_picture} alt='' />
                         <div className={style.info}>
                             <span className={style.name}>{comment.name}</span>
                             <p className={style.desc}>{comment.text}</p>

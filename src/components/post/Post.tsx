@@ -121,7 +121,7 @@ const Post = (props: any) => {
                     </div>
                     <div className={style.item} onClick={() => setCommentsOpen(!commentsOpen)}>
                         <TextsmsOutlinedIcon />
-                        6 Comments
+                        0 Comments
                     </div>
                     <div className={style.item}>
                         <ShareOutlinedIcon />
