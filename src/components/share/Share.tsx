@@ -6,8 +6,7 @@ import Place from '../../assets/map.png';
 import Friends from '../../assets/friend.png';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { makeRequest } from '../../axios';
-import axios from 'axios';
-import Upload from '../upload/Upload';
+
 
 
 const Share = () => {
