@@ -13,7 +13,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UpdateModal } from "../../components/update/UpdateModal";
 
 const ProfilePage = () => {
@@ -27,13 +27,16 @@ const ProfilePage = () => {
 
   const user_id = useLocation().pathname.split("/")[2];
 
-  // GET USER ID QUERY
-  const { isPending, data } = useQuery({
-    queryKey: ['user'],
-    queryFn: () => makeRequest.get("/user/find/" + [user_id]).then((res) => {
-      return res.data;
-    })
-  });
+
+
+  // // GET USER ID QUERY
+  // const { isPending, data } = useQuery({
+  //   queryKey: ['user'],
+  //   queryFn: () => makeRequest.get("/user/find/" + [user_id]).then((res) => {
+  //     console.log(res.data);
+  //     return res.data;
+  //   })
+  // });
 
   // GET RELATIONSHIP DATA QUERY
   const { isPending: relIsLoading, data: relationshipData } = useQuery({
@@ -42,6 +45,28 @@ const ProfilePage = () => {
       return res.data;
     })
   });
+
+
+  // GET USER ID QUERY
+  const { isPending, data, isSuccess } = useQuery({
+    queryKey: ['user'],
+    queryFn: () => makeRequest.get("/user/find/" + [user_id]).then((res) => {
+      return res.data;
+    })
+  });
+
+  const [userData, setUserData] = useState(null);
+
+  // Update `userData` only when `data` becomes available and is populated
+  useEffect(() => {
+    if (isSuccess && data) {
+      setUserData(data); // Set the fetched data
+    }
+  }, [data, isSuccess]);
+
+
+
+  console.log(userData);
 
 
   const queryClient = useQueryClient();
@@ -76,7 +101,7 @@ const ProfilePage = () => {
           <div className={style.images}>
             <img
               className={style.coverPic}
-              src={"/upload/" + data?.cover_picture}
+              src={data?.cover_picture}
             />
             <div className={style.profilePicContainer}>
               <img
@@ -123,7 +148,7 @@ const ProfilePage = () => {
                         onClick={() => setOpenUpdate(true)}>Update</button>)
                       : <button className={style.followBtn}
                         onClick={handleFollow}>
-                        {relationshipData.includes(currentUser.user_id) ? "Following" : "Follow"}
+                        {relationshipData?.includes(currentUser.user_id) ? "Following" : "Follow"}
                       </button>)}
                 </div>
               </div>
@@ -136,7 +161,7 @@ const ProfilePage = () => {
           </div>
         </>
       }
-      {openUpdate && <UpdateModal setOpenUpdate={setOpenUpdate} user={data} />}
+      {openUpdate && <UpdateModal setOpenUpdate={setOpenUpdate} userData={userData} />}
     </div>
   );
 };

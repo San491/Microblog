@@ -3,7 +3,10 @@ import style from './updateModal.module.css'
 import { makeRequest } from '../../axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-export const UpdateModal = ({ setOpenUpdate }: any, user: any) => {
+export const UpdateModal = ({ setOpenUpdate }: any, userData : any) => {
+
+    console.log(userData);
+
 
     const queryClient = useQueryClient();
     const [profilePic, setProfilePic] = useState<any>(null)
@@ -19,8 +22,8 @@ export const UpdateModal = ({ setOpenUpdate }: any, user: any) => {
         try {
             const formData = new FormData();
             formData.append("file", file);
-            const res = await makeRequest.post("/upload", formData)
-            return res.data;
+            const res = await makeRequest.post("/upload_profile", formData)
+            return res.data.fileUrl;
         }
         catch (err) {
             console.log(err);
@@ -41,11 +44,14 @@ export const UpdateModal = ({ setOpenUpdate }: any, user: any) => {
 
     const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        let coverURL = user.cover_picture;
-        let profileURL = user.profile_picture;
+        let coverURL = userData.cover_picture;
+        let profileURL = userData.profile_picture;
 
-        coverURL = coverPic ? await upload(coverPic) : coverURL;
-        profileURL = profilePic ? await upload(profilePic) : profileURL;
+        console.log(profileURL);
+        console.log(coverURL);
+
+        coverURL = coverPic != null ? await upload(coverPic) : userData.cover_picture;
+        profileURL = profilePic != null ? await upload(profilePic) : userData.profile_picture;
 
 
         mutation.mutate({ ...texts, coverPic: coverURL, profilePic: profileURL })
@@ -71,6 +77,7 @@ export const UpdateModal = ({ setOpenUpdate }: any, user: any) => {
                                 if (oneFile)                                 // making sure the file is not undefined before setFile        (ts)
                                     setCoverPic(oneFile)
                             }} />
+
 
                         <p>Upload a cover picture</p>
                         <input type='file'

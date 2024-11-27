@@ -91,7 +91,7 @@ const Post = (props: any) => {
                     {/* User */}
                     <div className={style.userInfo}>
                         {/* User Info & Image */}
-                        <img className={style.profileImg} src={"/upload/" + props.post.profile_picture} alt='' />
+                        <img className={style.profileImg} src={props.post.profile_picture} alt='' />
                         <div className={style.details}>
                             {/* Name linking to user profile */}
                             <Link to={`/profile/${props.post.user_id}`} style={{ textDecoration: "none", color: "inherit", fontWeight: "500" }}>
@@ -108,7 +108,7 @@ const Post = (props: any) => {
                 </div>
                 <div className={style.content}>
                     <p className={style.postDesc}>{props.post.caption}</p>
-                    {props.post.image && <img className={style.postImg} src={`../../../upload/${props.post.image}`} alt='' />}
+                    {props.post.image && <img className={style.postImg} src={`${props.post.image}`} alt='' />}
                 </div>
                 <div className={style.info}>
                     {/* LIKE UPDATION */}

@@ -18,6 +18,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
     "axios": "^1.6.8",
+    "imagekitio-react": "^4.2.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "moment": "^2.30.1",

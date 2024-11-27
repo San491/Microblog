@@ -59,7 +59,7 @@ const Navbar = () => {
                 <MailOutlineOutlinedIcon />
                 <NotificationsOutlinedIcon />
                 <div className={style.user} onClick={() => { setToggleMenu(!toggleMenu) }}>
-                    <img className={style.userImage} src={"/upload/" + currentUser.profile_picture} alt="" />
+                    <img className={style.userImage} src={currentUser.profile_picture} alt="" />
                     <span className={style.userName}>{currentUser.name}</span>
                 </div>
                 {

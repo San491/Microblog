@@ -6,6 +6,8 @@ import Place from '../../assets/map.png';
 import Friends from '../../assets/friend.png';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { makeRequest } from '../../axios';
+import axios from 'axios';
+import Upload from '../upload/Upload';
 
 
 const Share = () => {
@@ -41,12 +43,24 @@ const Share = () => {
             const formData = new FormData();
             formData.append("file", file);
             const res = await makeRequest.post("/upload", formData)
-            return res.data;
+            console.log(res.data.fileUrl);
+            return res.data.fileUrl;
         }
         catch (err) {
             console.log(err);
         }
     }
+    // const upload = async () => {
+    //     try {
+    //         const formData = new FormData();
+    //         formData.append("file", file);
+    //         const res = await axios.post("https://upload.imagekit.io/api/v2/files/upload", formData)
+    //         return res.data;
+    //     }
+    //     catch (err) {
+    //         console.log(err);
+    //     }
+    // }
 
     const handlePost = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -57,6 +71,8 @@ const Share = () => {
         setFile(null);
     }
 
+
+
     return (
         <div className={style.share}>
             <div className={style.container}>
@@ -64,10 +80,10 @@ const Share = () => {
                     <div className={style.leftTop}>
 
                         <div className={style.user}>
-                            <img className={style.profileImg} src={"/upload/" + currentUser.profile_picture} />
+                            <img className={style.profileImg} src={currentUser.profile_picture} />
                         </div>
                         <input type='textarea' className={style.input}
-                            placeholder={`What's on your mind ${currentUser.name}?`}
+                            placeholder={`What's on your mind, ${currentUser.name}?`}
                             onChange={(e) => { setCaption(e.target.value) }}
                             value={caption} />
                     </div>
@@ -84,9 +100,11 @@ const Share = () => {
                                 if (oneFile)                                 // making sure the file is not undefined before setFile        (ts)
                                     setFile(oneFile)
                             }} />
+
                         <label htmlFor='file'>
                             <div className={style.item}>
                                 <img className={style.image} src={Image} />
+
                                 <span>Add Image</span>
                             </div>
                         </label>

@@ -38,7 +38,7 @@ const Stories = () => {
     <div className={style.stories}>
       {/* Current User Temporary */}
       <div className={style.story}>
-        <img src={"/upload/"+currentUser.profile_picture} alt="Profile Picture" />
+        <img src={currentUser.profile_picture} alt="Profile Picture" />
         <span>{currentUser.name}</span>
         <button>+</button>
       </div>
