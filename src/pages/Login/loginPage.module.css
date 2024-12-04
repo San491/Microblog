@@ -86,7 +86,7 @@
 }
 
 .text_container_register{
-    padding-top: 13%;
+    padding-top: 9%;
     padding-left: 0%;
     font-family: "Open Sans", sans-serif;
 }
@@ -95,6 +95,29 @@
     margin-left: 70%;
     margin-top: 10%;
 
+}
+
+.regMessageSuccess{
+    position: absolute;
+    border: solid 1px rgb(14, 196, 20);
+    background-color: rgba(88, 213, 88, 0.226);
+    color: rgb(0, 153, 0);
+    margin-top: 0rem;
+    margin-left: 4rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    
+}
+.regMessageFail{
+    position: absolute;
+    border: solid 1px rgb(196, 14, 14);
+    background-color: rgba(213, 88, 88, 0.226);
+    color: rgb(153, 0, 0);
+    margin-top: 0rem;
+    margin-left: 4rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    
 }
 
 .heading{

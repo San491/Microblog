@@ -102,9 +102,9 @@ const Post = (props: any) => {
                     </div>
                     <MoreHorizIcon className={style.menuIcon} onClick={() => setMenuOpen(!menuOpen)} />
                     {menuOpen && props.post.user_id_post == currentUser.user_id &&
-                    <div className={style.postMenu}>
-                        <button className={style.deleteBtn} onClick={handleDelete}>Delete</button>
-                    </div>}
+                        <div className={style.postMenu}>
+                            <button className={style.deleteBtn} onClick={handleDelete}>Delete</button>
+                        </div>}
                 </div>
                 <div className={style.content}>
                     <p className={style.postDesc}>{props.post.caption}</p>
