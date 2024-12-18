@@ -1,5 +1,6 @@
 # Demo here:
 https://microblog-tawny.vercel.app/
+For a quick test: username: test, pass: 12345
 
 # React + TypeScript + Vite
 
