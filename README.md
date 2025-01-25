@@ -3,6 +3,8 @@ https://microblog-tawny.vercel.app/
 
 For a quick test: username - test, pass - 12345
 
+Backend repo: https://github.com/San491/microblog-api
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
